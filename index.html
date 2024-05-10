@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="TR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script type="text/javascript">
+            myFunc = function(){
+                alert();
+            }
+        </script>
+    </head>
+    <body onpagehide="myFunc()">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <form>
+            <input type="text" name="name" id="name" />
+          </form>
+        <script src="" async defer></script>
+
+        <script type="text/javascript">
+            /*function pageShown(evt)
+            {
+                if (evt.persisted)
+                    alert("pageshow event handler called.  The page was just restored from the Page Cache.");
+                else
+                    alert("pageshow event handler called for the initial load.  This is the same as the load event.");
+            }
+
+            function pageHidden(evt)
+            {
+                if (evt.persisted)
+                    alert("pagehide event handler called.  The page was suspended and placed into the Page Cache.");
+                else
+                    alert("pagehide event handler called for page destruction.  This is the same as the unload event.");
+            }
+
+            window.addEventListener("pageshow", pageShown, false);
+            window.addEventListener("pagehide", pageHidden, false);   */     
+
+
+            /*window.addEventListener("pagehide", (event) => {
+                if (event.persisted) {
+                    alert();
+                }
+            },
+            false,
+            );      */      
+
+            /*var ok = true        
+
+            function checkClose() {
+                //alert();
+                if (ok) {
+                    return "Have you saved your information?";
+                }
+            }
+
+            // this is reset everytime a new page is loaded
+
+            function okToLeavem() { // called if leaving the page is needed
+                ok = false;
+            }
+
+            window.onbeforeunload = checkClose;
+
+            window.onunload = checkClose;*/
+            var nedir = "";
+            
+
+
+            tiklan = function(){
+                //console.log(nedir);
+                if(nedir == "dikkat"){
+                    alert(nedir);
+                    nedir = "";
+                }
+
+            }
+            setInterval(tiklan, 1000);
+            closeCheck = function(event){
+                event.preventDefault();
+                nedir = "dikkat";                              
+                
+                // Included for legacy support, e.g. Chrome/Edge < 119
+                //event.returnValue = true;
+                console.log(event);
+                //window.removeEventListener("beforeunload", closeCheck);
+            }
+
+            window.addEventListener("beforeunload", closeCheck);
+            //window.addEventListener("unload",tiklan);
+            function WarnUser(e) {
+                if (!e) e = window.event;
+                //e.cancelBubble is supported by IE - this will kill the bubbling process.
+                e.cancelBubble = true;
+                e.returnValue = 'You have some unsaved data on this page?'; //This is displayed on the dialog
+                //e.stopPropagation works in Firefox.
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }    
+            }
+            //window.onbeforeunload = WarnUser;
+        </script>   
+        <button id="name" onclick="tiklan()">Tıkla</button>     
+    </body>
+</html></html>

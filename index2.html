@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .red {
+  background-color: red;
+}
+    </style>
+
+</head>
+<body>
+    
+  <button id="btn">Click Me then click "Cancel"</button>
+
+    <script type="text/javascript">
+
+        /*var ok = false;      
+        var timer
+// update the page as page exits
+window.addEventListener("beforeunload", function(event) {
+    
+  document.body.classList.add("red");
+  // if this timer runs, it means beforeunload was cancelled 
+
+  timer = window.setTimeout( function () {
+    //document.body.classList.remove("red");
+    alert();
+    window.open("http://localhost:5500/index2.html");
+  }, 50);
+  
+});
+   // remove the timer when the pages finally exits so the class is not removed.
+window.addEventListener("unload", function(event) {
+    //event.preventDefault();
+  window.clearTimeout(timer)
+  //document.body.classList.remove("red");
+
+});
+
+
+ // 3rd party code that is showing the "are you sure"
+window.addEventListener("beforeunload", function(event) {
+
+    event.preventDefault();
+    event.returnValue = 'I am 3rd party code';
+
+});*/
+window.onbeforeunload = function() {
+  return true;
+};
+    </script>
+</body>
+</html>
